@@ -17,23 +17,22 @@ public class AddressDAOImpl implements AddressDAO {
 
 	@Override
 	public Address createAddress(Address address) {
-		   em.persist(address);
-	        em.flush();
+		em.persist(address);
+		em.flush();
 		return address;
 	}
 
 	@Override
 	public Address getAddressByUserId(int id) {
-		  Address a = em.find(Address.class, id);
-			return a;
+		Address a = em.find(Address.class, id);
+		return a;
 	}
 
 	@Override
 	public Address updateAddress(Address address) {
-		 Address managed = em.find(Address.class, address.getId());
-	        managed = address;
-	        return managed;
-		
+		Address managed = em.find(Address.class, address.getId());
+		managed = address;
+		return managed;
 	}
 
 	@Override

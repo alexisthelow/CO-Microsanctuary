@@ -15,55 +15,45 @@ import entities.User;
 @Repository
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
-	
-	
 	@Override
 	public User createUser(UserDTO dto) {
 		User newUser = new User();
 		Login newLogin = new Login();
 		Address newAddress = new Address();
-		
+
 		newUser.setFirstName(dto.getFirstName());
 		newUser.setLastName(dto.getLastName());
 		newUser.setPhone(dto.getPhone());
 		newUser.setEmail(dto.getEmail());
-		
+
 		newLogin.setUserEmail(dto.getEmail());
 		newLogin.setPwd(dto.getPwd());
-		
+
 		newAddress.setStreet(dto.getStreet());
 		newAddress.setCity(dto.getCity());
 		newAddress.setState(dto.getState());
 		newAddress.setZip(dto.getZip());
-		
+
 		em.persist(newAddress);
 		em.flush();
-		
+
 		newUser.setAddress(newAddress);
-		
+
 		em.persist(newUser);
 		em.persist(newLogin);
 		em.flush();
-		
+
 		return newUser;
 	}
 
 	@Override
-	public List<User> getAllUsers() {
-		
-		String query = "select u From User u";
-		return em.createQuery(query, User.class).getResultList();
-		
-	}
-
-	@Override
 	public User getUserById(int id) {
-		
-        User u = em.find(User.class, id);
+
+		User u = em.find(User.class, id);
 		return u;
 	}
 	
@@ -73,7 +63,7 @@ public class UserDAOImpl implements UserDAO {
 		User user = getUserById(id);
 		Address userAddress = user.getAddress();
 		Login userLogin = em.find(Login.class, user.getEmail());
-		
+
 		dto.setUserId(user.getId());
 		dto.setFirstName(user.getFirstName());
 		dto.setLastName(user.getLastName());
@@ -85,8 +75,16 @@ public class UserDAOImpl implements UserDAO {
 		dto.setCity(userAddress.getCity());
 		dto.setState(userAddress.getState());
 		dto.setZip(userAddress.getZip());
-		
+
 		return dto;
+	}
+	
+	@Override
+	public List<User> getAllUsers() {
+
+		String query = "select u From User u";
+		return em.createQuery(query, User.class).getResultList();
+
 	}
 
 	@Override
@@ -102,55 +100,53 @@ public class UserDAOImpl implements UserDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	
+
 		return u;
 	}
 
 	@Override
 	public User updateUser(User user) {
 
-        User managed = em.find(User.class, user.getId());
-        managed = user;
-        return managed;
+		User managed = em.find(User.class, user.getId());
+		managed = user;
+		return managed;
 	}
-	
-	
 
 	@Override
 	public User updateUserByDto(UserDTO dto) {
-		
+
 		User updateUser = getUserById(dto.getUserId());
 		Address updateAddress = updateUser.getAddress();
 		Login updateLogin = em.find(Login.class, updateUser.getEmail());
-		
+
 		updateUser.setFirstName(dto.getFirstName());
 		updateUser.setLastName(dto.getLastName());
 		updateUser.setPhone(dto.getPhone());
 		updateUser.setEmail(dto.getEmail());
 		updateUser.setPermissionLevel(dto.getPermissionLevel());
-		
+
 		updateAddress.setStreet(dto.getStreet());
 		updateAddress.setCity(dto.getCity());
 		updateAddress.setState(dto.getState());
 		updateAddress.setZip(dto.getZip());
-		
+
 		updateLogin.setUserEmail(dto.getEmail());
 		updateLogin.setPwd(dto.getPwd());
-		
+
 		em.persist(updateUser);
 		em.persist(updateLogin);
 		em.persist(updateAddress);
 		em.flush();
-		
+
 		return updateUser;
 	}
 
 	@Override
 	public boolean deleteUser(User user) {
-		
+
 		User u = em.find(User.class, user.getId());
 		em.remove(u);
-		if(em.find(User.class,user.getId()) == null) {
+		if (em.find(User.class, user.getId()) == null) {
 			return true;
 		}
 		return false;

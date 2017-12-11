@@ -70,6 +70,11 @@ public class ItemController {
 		return mv;
 	}
 	
+	/**
+	 * shows a view with all available items
+	 * @param session	-- displays different results based on authenticated user
+	 * @return
+	 */
 	@RequestMapping(path = "showAllItems.do", method = RequestMethod.GET)
 	public ModelAndView showAllItems(HttpSession session) {
 		ModelAndView mv = new ModelAndView("searchpage");
@@ -106,11 +111,11 @@ public class ItemController {
 		mv.addObject("itemDetail", itemDetail);
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		
-		if (authUser.getPermissionLevel() > 0) {		//they're are logged in and can see stuff
+		if (authUser.getPermissionLevel() > 0) {		//they are logged in and can see info
 			User itemOwner = userDAO.getUserById(itemDetail.getOwner().getId());
 			mv.addObject("itemOwner", itemOwner);
 		}
-		if (authUser.equals(itemDetail.getOwner())) {	//they're the owner of the item, so they can update it
+		if (authUser.equals(itemDetail.getOwner())) {		//they're the owner of the item, so they can update it
 			mv.addObject("authUserIsItemOwner", true);	//add a boolean to indicate that, so view can create an update link
 		}
 		return mv;
@@ -173,6 +178,12 @@ public class ItemController {
 		return mv;
 	}
 	
+	/**
+	 * creates an initial borrow request
+	 * @param session	-- request is created with user's id
+	 * @param id			-- the item to be borrowed
+	 * @return
+	 */
 	@RequestMapping(path = "processRequest.do", method = RequestMethod.GET)
 	public ModelAndView processRequest(HttpSession session,
 			@RequestParam("itemId") int id) {
@@ -188,6 +199,12 @@ public class ItemController {
 		return mv;
 	}
 	
+	/**
+	 * confirms that an item has been picked up
+	 * @param session	-- only owner can update the record
+	 * @param id			-- the id of the request
+	 * @return
+	 */
 	@RequestMapping(path ="processConfirm.do", method = RequestMethod.GET)
 	public ModelAndView processConfirm(HttpSession session,
 					@RequestParam("activityId") int id) {
@@ -204,6 +221,13 @@ public class ItemController {
 		return mv;
 		
 	}
+	
+	/**
+	 * confirms that an item has been returned
+	 * @param session	-- only owner can update record
+	 * @param id			-- request id
+	 * @return
+	 */
 	@RequestMapping(path ="processReturn.do", method = RequestMethod.GET)
 	public ModelAndView confirmReturn(HttpSession session,
 			@RequestParam("activityId") int id) {
@@ -220,7 +244,5 @@ public class ItemController {
 		return mv;
 		
 	}
-	
-	
 	
 }

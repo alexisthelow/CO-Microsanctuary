@@ -4,7 +4,6 @@ import entities.Address;
 
 public interface AddressDAO {
 	
-	
 	//create address
 	public Address createAddress(Address address);
 	

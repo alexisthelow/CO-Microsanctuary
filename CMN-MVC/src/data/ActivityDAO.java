@@ -8,16 +8,15 @@ import entities.User;
 
 public interface ActivityDAO {
 	
-	
 	//create activity
 	public Activity createItemRequest(Item item, User borrower);
 	
 	//read activity
+	public Activity getActivityById(int id);
 	public List<Activity> getAllActivity();
 	public List<Activity> viewActivityByItem(Item item);
 	public List<Activity> viewActivityByUser(User user);
 	public List<Activity> getNewRequestsByUser(User user);
-	public Activity getActivityById(int id);
 	
 	//update activity
 	public Activity confirmLend(Activity activity);
@@ -27,5 +26,4 @@ public interface ActivityDAO {
 	//delete activity
 	public boolean deleteActivity(Activity activity);
 	
-
 }

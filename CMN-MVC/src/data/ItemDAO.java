@@ -5,19 +5,16 @@ import java.util.List;
 import entities.Item;
 
 public interface ItemDAO {
-
 	
 	//create item
 	public Item createItem(Item item);
 	
 	//read item
+	public Item getItemById(int id);
 	public List<Item> getAllItems();
 	public List<Item> getOfferedItemsByUserId(int id);
 	public List<Item> getOfferedItemsByTitle(String title);
 	public List<Item> getAvailableItemsByUserId(int id);
-	public Item getItemById(int id);
-	
-	//search item
 	public List<Item> getItemsByOwnerAddressWithZipCode(String title, String zip);
 	
 	//update item
@@ -25,7 +22,5 @@ public interface ItemDAO {
 	
 	//delete item
 	public boolean deleteItem(Item item);
-	
-
 	
 }

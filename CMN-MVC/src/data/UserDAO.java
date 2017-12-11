@@ -12,8 +12,8 @@ public interface UserDAO {
 		public User createUser(UserDTO dto);
 		
 		//read user
-		public List<User> getAllUsers();
 		public User getUserById(int id);
+		public List<User> getAllUsers();
 		public UserDTO getUserDtoByUserId(int id);
 		public User userLogin(String userEmail, String userPass);
 		
@@ -24,7 +24,4 @@ public interface UserDAO {
 		//delete user
 		public boolean deleteUser(User user);
 		
-		
-		
-	
 }

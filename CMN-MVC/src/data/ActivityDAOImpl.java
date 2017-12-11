@@ -23,7 +23,6 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 	@Override
 	public Activity createItemRequest(Item item, User borrower) {
-
 		Activity a = new Activity();
 		Item managedItem = em.find(Item.class, item.getId());
 		managedItem.setIsAvailable(false);
@@ -34,15 +33,16 @@ public class ActivityDAOImpl implements ActivityDAO {
 		return a;
 	}
 	
-	
+	@Override
+	public Activity getActivityById(int id) {
+		return em.find(Activity.class, id);
+	}
 
 	@Override
 	public List<Activity> getAllActivity() {
 		String query = "SELECT a FROM Activity a";
 		return em.createQuery(query, Activity.class).getResultList();
 	}
-
-
 
 	@Override
 	public List<Activity> viewActivityByItem(Item item) {
@@ -83,8 +83,6 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 		return managedActivity;
 	}
-	
-	
 
 	@Override
 	public Activity updateActivity(Activity activity) {
@@ -95,8 +93,6 @@ public class ActivityDAOImpl implements ActivityDAO {
 		return managedActivity;
 	}
 
-
-
 	@Override
 	public boolean deleteActivity(Activity activity) {
 		Activity a = em.find(Activity.class, activity.getId());
@@ -105,11 +101,6 @@ public class ActivityDAOImpl implements ActivityDAO {
 			return true;
 		}
 		return false;
-	}
-	@Override
-	public Activity getActivityById(int id) {
-		return em.find(Activity.class, id);
-	
 	}
 
 }

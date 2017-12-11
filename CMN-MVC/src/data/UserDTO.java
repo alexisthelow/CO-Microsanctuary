@@ -32,14 +32,6 @@ public class UserDTO {
 		this.userId = userId;
 	}
 
-	public int getPermissionLevel() {
-		return permissionLevel;
-	}
-
-	public void setPermissionLevel(int permissionLevel) {
-		this.permissionLevel = permissionLevel;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -110,6 +102,14 @@ public class UserDTO {
 
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+
+	public int getPermissionLevel() {
+		return permissionLevel;
+	}
+
+	public void setPermissionLevel(int permissionLevel) {
+		this.permissionLevel = permissionLevel;
 	}
 	
 }

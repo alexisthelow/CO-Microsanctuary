@@ -23,8 +23,4 @@ public class GoogleAddressHelper {
 
 	}
 
-	public static void main(String[] args) {
-		// test goes here
-	}
-
 }
