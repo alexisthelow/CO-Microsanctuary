@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-	compile project(':JPAMidtermProject')
+	compile project(':CMN-JPA')
     compile group: 'org.springframework', name: 'spring-webmvc', version:"$springVersion"
     compile group: 'org.springframework', name: 'spring-orm', version:"$springVersion"
     compile "org.springframework:spring-test:$springVersion"
