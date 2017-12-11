@@ -2,8 +2,6 @@ package data;
 
 import java.util.List;
 
-import entities.Address;
-import entities.Login;
 import entities.User;
 
 public interface UserDAO {

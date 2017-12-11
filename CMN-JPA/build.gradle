@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 
-group = 'com.midterm'
+group = 'com.cmn'
 version = '0.0.1-SNAPSHOT'
 
 ext {

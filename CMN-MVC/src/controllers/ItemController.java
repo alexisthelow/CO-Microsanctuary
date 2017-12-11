@@ -190,7 +190,7 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("userRequest");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		Item requestedItem = itemDAO.getItemById(id);
-		Activity newRequest = activityDAO.createItemRequest(requestedItem, authUser);
+		activityDAO.createItemRequest(requestedItem, authUser);
 		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
 		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
 		mv.addObject("userBorrows", userBorrows);
@@ -211,7 +211,7 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("userRequest");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		Activity getActivity = activityDAO.getActivityById(id);
-		Activity confirmLend = activityDAO.confirmLend(getActivity);
+		activityDAO.confirmLend(getActivity);
 		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
 		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
 		mv.addObject("userBorrows", userBorrows);
@@ -234,7 +234,7 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("userRequest");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		Activity getActivity = activityDAO.getActivityById(id);
-		Activity confirmReturn = activityDAO.confirmReturn(getActivity);
+		activityDAO.confirmReturn(getActivity);
 		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
 		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
 		mv.addObject("userBorrows", userBorrows);

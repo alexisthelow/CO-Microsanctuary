@@ -2,8 +2,6 @@ package helpers;
 
 import org.springframework.stereotype.Component;
 
-import entities.Address;
-
 @Component
 public class GoogleAddressHelper {
 	public String gMapsEmbedFormatter(String address) {

@@ -10,13 +10,13 @@
     </error-page>
     
   <servlet>
-    <servlet-name>midterm</servlet-name>
+    <servlet-name>cmn</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet
     </servlet-class>
 </servlet>
 
 <servlet-mapping>
-    <servlet-name>midterm</servlet-name>
+    <servlet-name>cmn</servlet-name>
     <url-pattern>*.do</url-pattern>
 </servlet-mapping>
 
