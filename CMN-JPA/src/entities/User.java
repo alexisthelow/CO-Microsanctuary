@@ -39,6 +39,14 @@ public class User {
 	
 	@OneToMany(mappedBy = "owner")
 	List<Item> items;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -71,14 +79,6 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public int getPermissionLevel() {
-		return permissionLevel;
-	}
-
-	public void setPermissionLevel(int permissionLevel) {
-		this.permissionLevel = permissionLevel;
-	}
 
 	public Address getAddress() {
 		return address;
@@ -87,9 +87,13 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
+	public int getPermissionLevel() {
+		return permissionLevel;
+	}
 
-	public int getId() {
-		return id;
+	public void setPermissionLevel(int permissionLevel) {
+		this.permissionLevel = permissionLevel;
 	}
 
 	public List<Item> getItems() {
@@ -100,14 +104,9 @@ public class User {
 		this.items = items;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone
-				+ ", email=" + email + "]";
+		return "User [id=" + id + ", permissionLevel=" + permissionLevel + "]";
 	}
 
 	@Override
@@ -131,7 +130,5 @@ public class User {
 			return false;
 		return true;
 	}
-	
-	
 
 }

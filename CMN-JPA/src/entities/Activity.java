@@ -36,15 +36,14 @@ public class Activity {
 	@Column(name = "is_returned")
 	private boolean isReturned;
 	
-
-	public boolean getIsReturned() {
-		return isReturned;
+	public int getId() {
+		return id;
 	}
-
-	public void setIsReturned(boolean isReturned) {
-		this.isReturned = isReturned;
+	
+	public void setId(int id) {
+		this.id = id;
 	}
-
+	
 	public User getBorrower() {
 		return borrower;
 	}
@@ -60,7 +59,7 @@ public class Activity {
 	public void setItem(Item item) {
 		this.item = item;
 	}
-
+	
 	public Date getDateLent() {
 		return dateLent;
 	}
@@ -68,7 +67,7 @@ public class Activity {
 	public void setDateLent(Date dateLent) {
 		this.dateLent = dateLent;
 	}
-
+	
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -76,19 +75,18 @@ public class Activity {
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-
-	public int getId() {
-		return id;
-	}
 	
-	public void setId(int id) {
-		this.id = id;
+	public boolean getIsReturned() {
+		return isReturned;
+	}
+
+	public void setIsReturned(boolean isReturned) {
+		this.isReturned = isReturned;
 	}
 
 	@Override
 	public String toString() {
-		return "Activity [id=" + id + ", borrower=" + borrower + ", item=" + item + ", dateLent=" + dateLent
-				+ ", dueDate=" + dueDate + ", returned=" + isReturned + "]";
+		return "Activity [id=" + id + ", isReturned=" + isReturned + "]";
 	}
 
 	@Override
@@ -112,6 +110,5 @@ public class Activity {
 			return false;
 		return true;
 	}
-	
 
 }

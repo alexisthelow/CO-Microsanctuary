@@ -8,12 +8,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "login")
 public class Login {
+	
 	@Id
 	@Column(name = "user_email")
 	private String userEmail;
 	
-
 	private String pwd;
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+	
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 
 	public String getPwd() {
 		return pwd;
@@ -21,18 +29,6 @@ public class Login {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	@Override
-	public String toString() {
-		return "Login [userEmail=" + userEmail + ", pwd=" + pwd + "]";
 	}
 
 	@Override
@@ -59,7 +55,5 @@ public class Login {
 			return false;
 		return true;
 	}
-	
-	
 
 }

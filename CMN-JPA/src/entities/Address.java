@@ -21,6 +21,18 @@ public class Address {
 	private String state;
 	
 	private String zip;
+	
+	public String formatAddress() {
+		return street +" " + city + " " + state + " " + zip; 
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getStreet() {
 		return street;
@@ -54,18 +66,9 @@ public class Address {
 		this.zip = zip;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
-				+ "]";
-	}
-	
-	public String formatAddress() {
-		return street +" " + city + " " + state + " " + zip; 
+		return "Address [id=" + id + ", zip=" + zip + "]";
 	}
 
 	@Override
