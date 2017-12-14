@@ -22,11 +22,13 @@
 					 	<c:when test="${not empty userBorrows}">
 					 		<table class="table-sm">
 					 			<thead>
-					 				<th>Item</th>
-					 				<th>Owner</th>
-					 				<th>Date Borrowed</th>
-					 				<th>Due Date</th>
-					 				<th>Returned?</th>
+					 				<tr>
+						 				<th>Item</th>
+						 				<th>Owner</th>
+						 				<th>Date Borrowed</th>
+						 				<th>Due Date</th>
+						 				<th>Returned?</th>
+					 				</tr>
 					 			</thead>
 								<c:forEach items = "${userBorrows}" var = "borrow">
 									<tr>
@@ -60,12 +62,14 @@
 					 	<c:when test="${not empty userLends}">
 					 		<table class="table-sm">
 					 			<thead>
-					 				<th>Borrower</th>
-					 				<th>Item</th>
-					 				<th>Date Borrowed</th>
-					 				<th>Due Date</th>
-					 				<th>Returned?</th>
-					 				<th>Action</th>
+					 				<tr>
+						 				<th>Borrower</th>
+						 				<th>Item</th>
+						 				<th>Date Borrowed</th>
+						 				<th>Due Date</th>
+						 				<th>Returned?</th>
+						 				<th>Action</th>
+					 				</tr>
 					 			</thead>
 					 			<c:forEach items = "${userLends}" var = "lend">	
 									<tr>
@@ -108,55 +112,6 @@
 			</div>
 		</div>
 	</div>
-	
-	
-<%-- 	 	
-<!-- <ul class="list-group"> -->
-<!--  <li class="list-group-item active"> -->${requests.item.title}<br>
-<!--  <li class="list-group-item active"> -->${requests.borrower.firstName} ${requests.borrower.lastName}<br>
-
-	<input type="submit" value="Confirm Request" onclick ="" /> --%>
- 
-<!--  
- </li>
-
-</ul> -->
-	
-	 	
-
-	 
-	 </div>
-	 
-</div>
-		 
-	
 <%@ include file="footer.jsp"%>
 </body>
 </html>
-	 	<!-- 	<div class="container"> -->
-			<!--   <div class="row"> -->
-			
-<%-- 			    <div class="container userRequest">
-	 	<div>
-	 	${requests.dateLent}<br>
-	 	${requests.item}<br>
-	 	${requests.borrower}<br>
-	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
-	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
-	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
-	 	</div>
-	 	</div> --%>
-	 	
-	 	   
-			<%--     <div class="col-sm">
-			      One of three columns
-			      ${requests.item.id}
-			    </div>
-			    <div class="col-sm">
-			      One of three columns
-			    </div>
-			    <div class="col-sm">
-			      One of three columns
-			    </div> --%>
-	 	
-			<!--  </div> -->

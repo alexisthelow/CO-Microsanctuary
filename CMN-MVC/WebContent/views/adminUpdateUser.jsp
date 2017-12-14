@@ -40,11 +40,13 @@
 	</c:if>
 	<table>
 		<thead>
-			<th>Item ID</th>
-			<th>Item Name</th>
-			<th>Item Description</th>
-			<th>Supply?</th>
-			<th>Available?</th>
+			<tr>
+				<th>Item ID</th>
+				<th>Item Name</th>
+				<th>Item Description</th>
+				<th>Supply?</th>
+				<th>Available?</th>
+			</tr>
 		</thead>
 		<c:if test="${not empty requestedUserItems}">
 			<c:forEach items="${requestedUserItems}" var="item">

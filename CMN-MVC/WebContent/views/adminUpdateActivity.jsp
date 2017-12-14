@@ -19,12 +19,14 @@
 			<form:hidden path="id" />
 			<table>
 				<thead>
-					<th>Borrower Name</th>
-					<th>Owner Name</th>
-					<th>Item</th>
-					<th>Date Lent</th>
-					<th>Due Date</th>
-					<th>Returned?</th>
+					<tr>
+						<th>Borrower Name</th>
+						<th>Owner Name</th>
+						<th>Item</th>
+						<th>Date Lent</th>
+						<th>Due Date</th>
+						<th>Returned?</th>
+					</tr>
 				</thead>	
 				<tr>
 					<td><a href="showAdminUpdateUser.do?userId=${requestedActivity.borrower.id}">${requestedActivity.borrower.firstName} ${requestedActivity.borrower.lastName}</a></td>			
