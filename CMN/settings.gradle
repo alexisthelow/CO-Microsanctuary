@@ -1,0 +1,2 @@
+rootProject.name = 'CMN'
+includeFlat 'CMN-JPA'
